@@ -1,5 +1,6 @@
 package br.git.app.zoo.controller;
 
+import br.git.app.zoo.component.indexHome;
 import br.git.app.zoo.modal.Zoologico;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ public class HomeController {
     public ModelAndView index(){
         System.out.println("model view");
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("zoo", new Zoologico());
+        modelAndView.addObject("zoo", new indexHome());
         return modelAndView;
     }
 }
