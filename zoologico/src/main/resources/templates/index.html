@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <h1 class="teste" th:text="${zoo.getNome()}"></h1>
+        <h1 class="teste" th:text="${zoo.imprimeAlgo()}"></h1>
+        <p style="color: darkred">Escolha uma das opções:</p>
+        <button onclick="window.location = 'animaisLista';">Ver os animais do zoológico?</button>
+        <button onclick="window.location = 'insertAnimal';">Inserir um animal no zoológico?</button>
+    </body>
+</html>
