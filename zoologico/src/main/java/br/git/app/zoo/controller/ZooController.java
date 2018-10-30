@@ -1,9 +1,14 @@
 package br.git.app.zoo.controller;
 
+import br.git.app.zoo.inputs.NovoAnimal;
 import br.git.app.zoo.modal.Zoologico;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ZooController {
@@ -15,9 +20,17 @@ public class ZooController {
         return mav;
     }
 
-    @RequestMapping("/insertAnimais")
-    public ModelAndView insertAnimais(){
-        return new ModelAndView("insertAnimal");
+
+    @GetMapping("/insertAnimais")
+    public String insertAnimaisForm(@ModelAttribute("animal") NovoAnimal novoAnimal){
+        return "GET";
+    }
+    @PostMapping("/insertAnimais")
+    public String insertAnimais(NovoAnimal newAnimal, RedirectAttributes redirectAttrs){
+        NovoAnimal animal = new NovoAnimal();
+        animal.setAnimalNome(newAnimal.getAnimalNome());
+        System.out.println(">>> "+newAnimal.getAnimalNome());
+        return "POST";
     }
 
     @RequestMapping("/animaisLista")
