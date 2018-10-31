@@ -4,19 +4,29 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 public class Zoologico {
-    private ArrayList<String> animais = new ArrayList<>();
+    private String animais;
 
-    public Boolean insertNewAnimal(String animal){
-        animais.add(animal);
-        return true;
+    public Zoologico(){}
+
+    public Zoologico(String nome){
+        setAnimais(nome);
     }
 
-    public String printList(){
-        int i = 0;
-        String saida = "";
-        for(String actual : animais){
-            saida += actual;
-        }
-        return saida;
+    public String getAnimais() {
+        return animais;
     }
+
+    public void setAnimais(String animais) {
+        this.animais = animais;
+    }
+
+//    public String printList(){
+//        int i = 0;
+//        String saida = "";
+//        for(String actual : animais){
+//            saida += actual;
+//            saida += "<br>";
+//        }
+//        return saida;
+//    }
 }

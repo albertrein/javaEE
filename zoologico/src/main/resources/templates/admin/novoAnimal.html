@@ -5,8 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="POST" th:object="${animal}" th:action="@{insertAnimais}">
-        <input type="text" class="entrada" th:field="*{entrada}">
+    <form method="POST" action="/insertAnimais">
+        <input type="text" name="nomeAnimal"/>
         <input type="submit" name="Submit" class="entrada">
     </form>
 </body>

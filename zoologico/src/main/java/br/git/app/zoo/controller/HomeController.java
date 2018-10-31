@@ -15,7 +15,6 @@ public class HomeController {
 
     @RequestMapping("/begin")
     public ModelAndView index(){
-        System.out.println("model view");
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("zoo", new indexHome());
         return modelAndView;

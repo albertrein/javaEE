@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Animals List</title>
 </head>
 <body>
+    <div class="item" >
+        <p class="text" th:each="animal : ${zoo}" th:text="${animal.getAnimais()}"></p>
+        <!--
+            Através da do th:each ele gera um foreach no componente onde ele for criado
+            zoo é a lista enviado pelo controller e animal é o objeto
+            th:text imprime o text vindo do objeto animal.getAnimais()
+        -->
+        <br>
+    </div>
+
+    <!--<div class="item">-->
+        <!--<p class="text" th:text="${lista.printList()}"></p>-->
+    <!--</div>-->
+
 
 </body>
 </html>

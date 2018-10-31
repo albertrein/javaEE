@@ -3,16 +3,20 @@ package br.git.app.zoo.controller;
 import br.git.app.zoo.inputs.NovoAnimal;
 import br.git.app.zoo.modal.Zoologico;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class ZooController {
-    private Zoologico zoologico = new Zoologico();
+    private List<Zoologico> zoologico = new ArrayList<>();
+    //private Zoologico zoologico = new Zoologico();
 
     @RequestMapping("/inserindoNovoAnimal")
     public ModelAndView entradaNovoAnimal(){
@@ -20,22 +24,19 @@ public class ZooController {
         return mav;
     }
 
-
-    @GetMapping("/insertAnimais")
-    public String insertAnimaisForm(@ModelAttribute("animal") NovoAnimal novoAnimal){
-        return "GET";
-    }
-    @PostMapping("/insertAnimais")
-    public String insertAnimais(NovoAnimal newAnimal, RedirectAttributes redirectAttrs){
-        NovoAnimal animal = new NovoAnimal();
-        animal.setAnimalNome(newAnimal.getAnimalNome());
-        System.out.println(">>> "+newAnimal.getAnimalNome());
-        return "POST";
+    @RequestMapping(value = "/insertAnimais", method = RequestMethod.POST)
+    public String addingAnimal(@RequestParam("nomeAnimal") String animalNome, HttpSession secao){
+        System.out.println(animalNome);
+        zoologico.add(new Zoologico(animalNome));
+        return "redirect:/begin";
     }
 
     @RequestMapping("/animaisLista")
     public ModelAndView animaisLista(){
-        return new ModelAndView("listaAnimais");
+        ModelAndView mav = new ModelAndView("admin/animalsList");
+        mav.addObject("zoo",zoologico);
+        //mav.addObject("lista",zoologico);
+        return mav;
     }
 
 
