@@ -11,3 +11,8 @@ do
 	fi
 	cd $diretorioRaiz # Volta a pasta raiz do projeto, usando path raiz para caso o git seja um sub-diretorio
 done;
+
+echo ""
+echo ""
+echo ""
+echo -e "developed by: \e[1;42malbertrein\e[0m" 
