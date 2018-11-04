@@ -1,0 +1,3 @@
+INSERT INTO DATA VALUES (1, 'Guilherme');
+INSERT INTO DATA VALUES (2, 'ALberto');
+INSERT INTO DATA VALUES (3, 'Reinheimer');

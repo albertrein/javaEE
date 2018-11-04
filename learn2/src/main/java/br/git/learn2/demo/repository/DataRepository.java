@@ -4,4 +4,5 @@ import br.git.learn2.demo.model.Data;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DataRepository extends CrudRepository<Data, Long> {
+    public Data getFirstById(Long id);
 }
