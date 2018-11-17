@@ -16,9 +16,13 @@ public class ControllerDataInsert {
 
     @RequestMapping(value = "/insertdata", method = RequestMethod.POST)
     public ModelAndView insertdata(@RequestParam("textoToInsert") String text, HttpSession secao){
-
         ModelAndView str = new ModelAndView("teste");
         str.addObject("textoinserido",text);
+
+        Data dataToInsert = new Data();
+        dataToInsert.setData(text);
+        dataRepository.save(dataToInsert);
+
         return str;
     }
 

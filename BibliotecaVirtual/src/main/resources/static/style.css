@@ -1,0 +1,21 @@
+body{
+    background-color: lightsalmon;
+    font-family: "DejaVu Serif";
+}
+
+nav{
+    display: flex;
+    border: solid;
+}
+
+.nav-button{
+    font-size: 20px;
+    text-decoration: none;
+    margin: 10px;
+}
+.nav-button:hover{
+    background-color: tomato;
+}
+
+.search{ display: none; margin: 55px;}
+.insert{ display: none; margin: 55px;}

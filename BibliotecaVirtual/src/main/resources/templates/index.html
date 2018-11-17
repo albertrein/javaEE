@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Welcome to Virtual Library</title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
-$END$
+    <h1>Sistema de gerenciamento bibliotecário</h1>
+    <nav>
+        <a href="/" class="nav-button">Home</a>
+        <a onclick="showSearch()" class="nav-button">Buscar Livros</a>
+        <a onclick="showInsert()" class="nav-button">Inserir Livros</a>
+    </nav>
+
+    <div class="search">
+        <h3>Busca dados</h3>
+        <form action="/search/">
+            <input type="text" name="search" placeholder="Digite: (Titulo, Autor ou Editora)">
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class="insert">
+        <h3>Inserir dados</h3>
+        <form action="/insert">
+            <input type="text" name="titulo" placeholder="Titulo">
+            <input type="text" name="autor" placeholder="Autor">
+            <input type="text" name="editora" placeholder="Editora">
+            <input type="submit">
+        </form>
+    </div>
+
+    <script language="JavaScript1.5">
+        function showSearch(){
+           let search = document.querySelector('.search');
+           search.style.display = "block";
+        }
+        function showInsert(){
+           let insert = document.querySelector('.insert');
+           insert.style.display = "block";
+        }
+    </script>
 </body>
 </html>
