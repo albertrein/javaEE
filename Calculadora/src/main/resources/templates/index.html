@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt_BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST" th:action="@{/resultado}" th:object="${calculadora}">
+        <label for="" class="txt">Digite Valor 1:</label>
+        <input type="text" th:field="*{val1}">
+        <label for="" class="txt">Digite Valor 2:</label>
+        <input type="text" th:field="*{val2}">
+        <label for="" class="txt">Escolha a operação:</label>
+        <select th:field="*{opcao}">
+            <option value=""></option>
+            <option value="x">Multiplicação</option>
+            <option value="/">Divisão</option>
+            <option value="-">Subtração</option>
+            <option value="+">Adição</option>
+        </select>
+
+        <input type="submit">
+    </form>
+        
+</body>
+</html>
