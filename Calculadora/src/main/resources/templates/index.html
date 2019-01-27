@@ -2,14 +2,39 @@
 <html lang="pt_BR" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Calculadora</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#form1").submit(function (e){
+                e.preventDefault();
+
+                var objectToSend = {};
+                $.each($(this).serializeArray(), function(){
+                    objectToSend[this.name] = this.value;
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "/calculadora",
+                    contentType : 'application/json; charset=utf-8',
+                    dataType : 'json',
+                    data: JSON.stringify(objectToSend),
+                    success: function (dataResponde) {
+                        console.log(dataResponde);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <form method="POST" th:action="@{/resultado}" th:object="${calculadora}">
+    <form id="form1" method="POST" th:action="@{/calculadora}" th:object="${calculadora}">
         <label for="" class="txt">Digite Valor 1:</label>
-        <input type="text" th:field="*{val1}">
+        <input type="number" th:field="*{val1}">
         <label for="" class="txt">Digite Valor 2:</label>
-        <input type="text" th:field="*{val2}">
+        <input type="number" th:field="*{val2}">
         <label for="" class="txt">Escolha a operação:</label>
         <select th:field="*{opcao}">
             <option value=""></option>
@@ -21,6 +46,14 @@
 
         <input type="submit">
     </form>
-        
+
+    <h1 th:text="${resultado}" style="color:red"></h1>
+
+    <form id="form2" method="POST" th:action="@{/teste}" th:object="${teste}">
+        <input type="text" th:field="*{nome}">
+        <input type="submit">
+    </form>
+    <h1 th:text="${testeSaida}" style="color: blue;"></h1>
+
 </body>
 </html>

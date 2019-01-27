@@ -1,9 +1,11 @@
 package br.estudos.calculadora.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Calculadora {
-    private Double val1;
-    private Double val2;
-    private String opcao;
+    @JsonProperty("val1") private Double val1;
+    @JsonProperty("val2") private Double val2;
+    @JsonProperty("opcao") private String opcao;
 
 
     public Double getVal1() {
